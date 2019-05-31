@@ -1,0 +1,33 @@
+.profiles {
+  margin: 0px 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  justify-content: center;
+  justify-items: center;
+  grid-gap: 30px;
+
+  .profileCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: lightgray;
+    border: 1px solid black;
+    width: 250px;
+    height: 350px;
+
+    img {
+      border: 1px solid black;
+      width: 90px;
+      height: 90px;
+      border-radius: 50px;
+    }
+
+    h1 {
+    }
+    p {
+    }
+    button {
+    }
+  }
+}

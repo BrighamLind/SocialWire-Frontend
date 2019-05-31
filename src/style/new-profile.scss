@@ -1,0 +1,17 @@
+.create-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightgray;
+  border: 1px solid black;
+  width: 250px;
+  height: 350px;
+
+  img {
+    border: 1px solid black;
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+  }
+}
