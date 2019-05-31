@@ -1,0 +1,19 @@
+.footer-nav-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .nav-link {
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: $gradiant;
+    font-weight: bold;
+    border: 1px solid #4b4c4c;
+    background-color: $caution;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2em;
+  }
+}
