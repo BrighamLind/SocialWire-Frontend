@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background: $gradiant;
+  box-shadow: 0 0 15px 2px rgba($color: #000000, $alpha: 0.5);
+
+  .right {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    color: $caution;
+    margin-right: 15px;
+  }
+
+  .left {
+    display: flex;
+
+    img {
+      height: 140px;
+    }
+  }
+
+  .center {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 600px;
+
+    a {
+      text-decoration: none;
+      color: $gradiant;
+      font-weight: bold;
+      border: 1px solid $caution;
+      background-color: $caution;
+      padding: 20px;
+      border-radius: 8px 8px 0 0;
+    }
+  }
+}
