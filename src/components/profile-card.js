@@ -17,9 +17,9 @@ const ProfileCard = props => {
         <button className="btn" onClick={() => props.handleDeleteClick(item)}>
           delete TODO
         </button>
-        <NavLink className="btn" to="/button">
+        <button className="btn" to={`/profile-card/${item.id}`}>
           button
-        </NavLink>
+        </button>
       </div>
     );
   });
