@@ -7,9 +7,7 @@ const ProfileCard = props => {
   const profileList = props.axiosData.map(item => {
     return (
       <div key={item.id} className="profileCard">
-        <div className="profile-image">
-          <img src={item.image} />
-        </div>
+        <div className="profile-image" style={{backgroundImage: "url(" + item.image + ")"}} />
         <h2>{item.name}</h2>
         <div className="line" />
         <p>{item.description}</p>

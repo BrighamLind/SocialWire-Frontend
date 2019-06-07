@@ -15,16 +15,13 @@
     @include card-styles;
 
     .profile-image {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       border: 1px solid black;
-      width: 90px;
-      height: 90px;
-      border-radius: 50px;
-      img {
-        height: inherit;
-        width: inherit;
-        border-radius: 50px;
-        position: absolute;
-      }
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
     }
   }
 }
