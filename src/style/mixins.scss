@@ -1,0 +1,57 @@
+@mixin card-styles() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $transparentDarkGrey;
+    border: 1px solid $gradiant;
+    border-radius: 1em;
+    box-shadow: 0 0 15px 1px rgba($color: #000000, $alpha: 0.5);
+    width: 250px;
+    height: 350px;
+    h2 {
+        color: $caution;
+        font-weight: 50;
+        text-transform: uppercase;
+    }
+    p {
+        font-family: 'Roboto', sans-serif;
+        font-size: .9em;
+        font-weight: 50;
+        color: $offWhite;
+        
+    }
+    button {
+        font-size: 1.175em;
+        border: none;
+        border-radius: 1em;
+        box-shadow: inset 0 -3px 3px 0 $transparentDarkGrey;
+        width: 50%;
+        background-color: $offWhite;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: $gradiant;
+        box-shadow: inset 0 -3px 3px 0 $grey;
+        color: $offWhite;
+    }
+    form {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1em;
+        align-items: center;
+        button {
+            width: 100%;
+            border-radius: 2px;
+        }
+    }
+    input {
+        border: none;
+        background-color: $lightgrey;
+    }
+    textarea {
+        border: none;
+        background-color: $lightgrey;
+    }
+    
+}

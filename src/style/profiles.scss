@@ -1,33 +1,24 @@
 .profiles {
-  margin: 0px 100px;
+  background-image: url("https://en.gfwiki.com/images/8/86/BG_homescreen.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 5vh 10vw;
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
   justify-content: center;
   justify-items: center;
-  grid-gap: 30px;
+  grid-gap: 2vw;
 
   .profileCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: lightgray;
-    border: 1px solid black;
-    width: 250px;
-    height: 350px;
+    @include card-styles;
 
     img {
       border: 1px solid black;
       width: 90px;
       height: 90px;
       border-radius: 50px;
-    }
-
-    h1 {
-    }
-    p {
-    }
-    button {
     }
   }
 }
