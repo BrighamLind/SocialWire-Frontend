@@ -7,11 +7,16 @@ const ProfileCard = props => {
   const profileList = props.axiosData.map(item => {
     return (
       <div key={item.id} className="profileCard">
-        <div className="profile-image" style={{backgroundImage: "url(" + item.image + ")"}} />
+        <div
+          className="profile-image"
+          style={{ backgroundImage: "url(" + item.image + ")" }}
+        />
         <h2>{item.name}</h2>
         <div className="line" />
         <p>{item.description}</p>
-        <button>delete TODO</button>
+        <button className="btn" onClick={() => props.handleDeleteClick(item)}>
+          delete TODO
+        </button>
         <NavLink className="btn" to="/button">
           button
         </NavLink>

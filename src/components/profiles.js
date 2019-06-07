@@ -18,7 +18,6 @@ const Profiles = () => {
     axios
       .get("https://bottega-social-wire.herokuapp.com/turpentine")
       .then(response => {
-        console.log(response.data);
         setProfileCards([...response.data]);
       })
       .catch(error => {
@@ -26,9 +25,29 @@ const Profiles = () => {
       });
   };
 
+  const handleDeleteClick = item => {
+    axios
+      .delete(`https://bottega-social-wire.herokuapp.com/delete/${item.id}`)
+      .then(response => {
+        setProfileCards(
+          profileCards.filter(item => {
+            return item.id !== item.id;
+          })
+        );
+        getPortfolioItems();
+        return response.data;
+      })
+      .catch(error => {
+        console.log("handleDeleteClick error", error);
+      });
+  };
+
   return (
     <div className="profiles">
-      <ProfileCard axiosData={profileCards} />
+      <ProfileCard
+        handleDeleteClick={handleDeleteClick}
+        axiosData={profileCards}
+      />
 
       <CreateProfile
         getPortfolioItems={getPortfolioItems}
