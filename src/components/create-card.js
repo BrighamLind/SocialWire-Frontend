@@ -34,13 +34,14 @@ const CreateProfile = props => {
     })
       .then(response => {
         console.log(response);
-        // handleSuccessfulFormSubmission(response.data);
 
         setImage("");
         setName("");
         setDescription("");
 
         clearDropzone(props.profileRef);
+
+        props.getPortfolioItems();
       })
       .catch(error => {
         console.log("I caught the error", error);
@@ -96,7 +97,9 @@ const CreateProfile = props => {
           value={newDescription}
           onChange={event => setDescription(event.target.value)}
         />
-        <button type="submit">Create User</button>
+        <button className="btn" type="submit">
+          Create User
+        </button>
       </form>
     </div>
   );

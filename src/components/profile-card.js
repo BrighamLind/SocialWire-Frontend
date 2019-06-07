@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 // main page content
-
-import samplePic from "../sampleImageDeleteLater/bb-kysen.jpg";
 
 const ProfileCard = props => {
   const profileList = props.axiosData.map(item => {
     return (
       <div key={item.id} className="profileCard">
-        <div className="profile-image" style={{backgroundImage: "url(" + item[1] + ")"}} />
-        <h2>{item[2]}</h2>
-        <p>{item[3]}</p>
-        <button>button</button>
+        <div className="profile-image" style={{backgroundImage: "url(" + item.image + ")"}} />
+        <h2>{item.name}</h2>
+        <div className="line" />
+        <p>{item.description}</p>
+        <button>delete TODO</button>
+        <NavLink className="btn" to="/button">
+          button
+        </NavLink>
       </div>
     );
   });
