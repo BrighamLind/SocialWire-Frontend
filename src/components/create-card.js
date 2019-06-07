@@ -6,39 +6,45 @@ import axios from "axios";
 import "../../node_modules/react-dropzone-component/styles/filepicker.css";
 import "../../node_modules/dropzone/dist/min/dropzone.min.css";
 
-const CreateProfile = () => {
+const CreateProfile = props => {
   const [newImage, setImage] = useState("");
-  const [newName, setName] = useState("");
+  const [newName, setName] = React.useState("");
   const [newDescription, setDescription] = useState("");
 
-  //
+  // const [cardArray, setCardArray] = useState([]);
 
-  const buildForm = () => {
-    let formData = new FormData();
-
-    formData.append("image", newImage);
-    formData.append("name", newName);
-    formData.append("description", newDescription);
-    return formData;
-  };
-
-  const handleSuccessfulFormSubmission = () => {
-    setImage("");
-    setName("");
-    setDescription("");
+  // const handleSuccessfulFormSubmission = data => {
+  //   setCardArray([data].concat(cardArray));
+  // };
+  const clearDropzone = ref => {
+    ref.current.dropzone.removeAllFiles();
   };
 
   const handleSubmit = event => {
-    axios
-      .post("https://bottega-social-wire.herokuapp.com/add-user", buildForm())
-      .then(() => {
-        // ToDo
-        handleSuccessfulFormSubmission();
+    event.preventDefault();
+    // console.log(newImage.dataURL);
+    axios({
+      method: "post",
+      url: "https://bottega-social-wire.herokuapp.com/add-user",
+      data: {
+        image: newImage.dataURL,
+        name: newName,
+        description: newDescription
+      }
+    })
+      .then(response => {
+        console.log(response);
+        // handleSuccessfulFormSubmission(response.data);
+
+        setImage("");
+        setName("");
+        setDescription("");
+
+        clearDropzone(props.profileRef);
       })
       .catch(error => {
-        console.log("portfolio form handleSubmit error", error);
+        console.log("I caught the error", error);
       });
-    event.preventDefault();
   };
 
   const componentConfig = () => {
@@ -56,8 +62,6 @@ const CreateProfile = () => {
     };
   };
 
-  const thumbRef = React.createRef();
-
   const handleThumbDrop = () => {
     return {
       addedfile: file => setImage(file)
@@ -68,7 +72,7 @@ const CreateProfile = () => {
     <div className="create-card">
       <form onSubmit={handleSubmit}>
         <DropzoneComponent
-          ref={thumbRef}
+          ref={props.profileRef}
           config={componentConfig()}
           djsConfig={djsConfig()}
           eventHandlers={handleThumbDrop()}
