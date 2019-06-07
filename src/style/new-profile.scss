@@ -1,12 +1,5 @@
 .create-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: lightgray;
-  border: 1px solid black;
-  width: 250px;
-  height: 350px;
+  @include card-styles;
 
   img {
     border: 1px solid black;
