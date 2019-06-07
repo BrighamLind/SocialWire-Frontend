@@ -6,45 +6,36 @@ import axios from "axios";
 import ProfileCard from "./profile-card";
 import CreateProfile from "./create-card";
 
-class Profiles extends React.Component {
-  constructor(props) {
-    super(props);
+const Profiles = () => {
+  const [profileCards, setProfileCards] = React.useState([]);
+  const profileRef = React.createRef();
 
-    this.state = {
-      profileCards: []
-    };
+  React.useEffect(() => {
+    getPortfolioItems();
+  }, []);
 
-    this.profileRef = React.createRef();
-  }
-
-  getPortfolioItems() {
+  const getPortfolioItems = () => {
     axios
       .get("https://bottega-social-wire.herokuapp.com/turpentine")
       .then(response => {
         console.log(response.data);
-        this.setState({
-          profileCards: [...response.data]
-        });
-        console.log(this.state.profileCards);
+        setProfileCards([...response.data]);
       })
       .catch(error => {
         console.log("profiles page error kysen", error);
       });
-  }
+  };
 
-  componentDidMount() {
-    this.getPortfolioItems();
-  }
+  return (
+    <div className="profiles">
+      <ProfileCard axiosData={profileCards} />
 
-  render() {
-    return (
-      <div className="profiles">
-        <ProfileCard axiosData={this.state.profileCards} />
-
-        <CreateProfile profileRef={this.profileRef} />
-      </div>
-    );
-  }
-}
+      <CreateProfile
+        getPortfolioItems={getPortfolioItems}
+        profileRef={profileRef}
+      />
+    </div>
+  );
+};
 
 export default Profiles;
