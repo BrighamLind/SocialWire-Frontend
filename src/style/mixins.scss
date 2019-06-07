@@ -35,5 +35,23 @@
         box-shadow: inset 0 -3px 3px 0 $grey;
         color: $offWhite;
     }
+    form {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1em;
+        align-items: center;
+        button {
+            width: 100%;
+            border-radius: 2px;
+        }
+    }
+    input {
+        border: none;
+        background-color: $lightgrey;
+    }
+    textarea {
+        border: none;
+        background-color: $lightgrey;
+    }
     
 }
