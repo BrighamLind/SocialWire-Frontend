@@ -11,9 +11,15 @@
     height: 350px;
     h2 {
         color: $caution;
+        font-weight: 50;
+        text-transform: uppercase;
     }
     p {
+        font-family: 'Roboto', sans-serif;
+        font-size: .9em;
+        font-weight: 50;
         color: $offWhite;
+        
     }
     button {
         font-size: 1.175em;
